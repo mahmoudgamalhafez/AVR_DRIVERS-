@@ -44,7 +44,6 @@ int main()
 //	set_bit(SREG,SREG_T);
 	BUZZER_vidInit();
 
-
 	while(1)
 	{
 		BUZZER_vidON();
