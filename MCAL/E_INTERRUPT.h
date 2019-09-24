@@ -13,12 +13,7 @@
 #define	LOGICAL_CHANGE		1
 #define FALLING_EDGE		2
 #define RISING_EDGE			3
-/* External Interrupt Request 0 */
-#define vect_INT0			1
-/* External Interrupt Request 1 */
-#define vect_INT1			2
-/* External Interrupt Request 2 */
-#define vect_INT3			3
+
 
 
 /*

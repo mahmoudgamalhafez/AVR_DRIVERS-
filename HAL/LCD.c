@@ -14,8 +14,8 @@
 #include 	"../MCAL/DIO.h"
 #include 	"LCD_CFG.h"
 
-//static void LOC_vidSendInstruction(u8 Ins);
-static void Check_Busy_Flag();
+static void LOC_vidSendInstruction(u8 Ins);
+//static void Check_Busy_Flag();
 
 
 #define	FUNCTION_SET		0b00111100
@@ -47,7 +47,7 @@ extern void LCD_vidInit(void)
 }
 
 
-extern void LOC_vidSendInstruction(u8 Ins)
+static void LOC_vidSendInstruction(u8 Ins)
 {
 	/*set RW=0*/
 	DIO_vidSetPinValue(LCD_RWPORT,LCD_RWPIN,LOW);
@@ -140,6 +140,7 @@ void LCD_CreatCustomPattern(u8 *Pattern,u8 Position)
 }
 
 /*Read address counter to determine position */
+/*
 extern u8 	LCD_u8ReadAddCounter()
 {
 	u8  temp ;
@@ -153,8 +154,8 @@ extern u8 	LCD_u8ReadAddCounter()
 	DIO_vidSetPortDir(LCD_DATAPORT,OUTPUT);
 	return temp;
 }
-
 /*NOT WORKING */
+/*
 static void Check_Busy_Flag()
 {
 
@@ -171,3 +172,4 @@ static void Check_Busy_Flag()
 	DIO_vidSetPortDir(LCD_DATAPORT,OUTPUT);
 }
 
+*/

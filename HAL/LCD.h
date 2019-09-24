@@ -17,6 +17,6 @@ extern void LCD_vidSetCursor(u8 Line,u8 Position);
 extern u8 	LCD_u8ReadAddCounter();
 extern void LCD_ClearData(u8 Line);
 extern void LCD_CreatCustomPattern(u8 *Pattern,u8 Position);
-extern void LOC_vidSendInstruction(u8 Ins);
+extern void LCD_vidClearScreen();
 
 #endif /* HAL_LCD_H_ */

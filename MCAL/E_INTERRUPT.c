@@ -28,6 +28,19 @@
 /* MCUCSR */
 #define ISC2    6
 
+
+/*Interrupt Call back */
+void (* ptr_INT0)(void);
+void (* ptr_INT1)(void);
+void (* ptr_INT2)(void);
+
+/* External Interrupt Request 0 */
+#define vect_INT0			1
+/* External Interrupt Request 1 */
+#define vect_INT1			2
+/* External Interrupt Request 2 */
+#define vect_INT2			3
+
 void EINTERRUPT_vidGEnable()
 {
 	set_bit(SREG_REG,G_INT_ENABLE); //Enable Global Interrupt
@@ -105,4 +118,31 @@ void EINTERRUPT_vidENINT2(u8 Triggering)
 		set_bit(MCUCSR_REG,ISC2);
 		break;
 	}
+}
+/* */
+void INT0_CallBack(void (*pfn) (void))
+{
+	ptr_INT0=pfn;
+}
+void INT1_CallBack(void (*pfn) (void))
+{
+	ptr_INT1=pfn;
+}
+void INT2_CallBack(void (*pfn) (void))
+{
+	ptr_INT2=pfn;
+}
+
+
+ISR(vect_INT0)
+{
+	ptr_INT0();
+}
+ISR(vect_INT1)
+{
+	ptr_INT1();
+}
+ISR(vect_INT2)
+{
+	ptr_INT2();
 }
